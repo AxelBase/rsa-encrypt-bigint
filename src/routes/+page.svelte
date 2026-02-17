@@ -188,7 +188,7 @@
 
     <div class="mt-5 text-center p-4 rounded-4" style="background: var(--brand-orange-light)">
        <p class="mb-0 text-muted small">
-        More questions? Explore the <a href="/blog" class="fw-bold text-decoration-none" style="color: var(--brand-orange)">Insights Blog</a> for deep dives into RSA math.
+        More questions? Explore the <a href="{base}/blog" class="fw-bold text-decoration-none" style="color: var(--brand-orange)">Insights Blog</a> for deep dives into RSA math.
       </p>
     </div>
   </div>
