@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AxelBase – RSA Encrypt</title> 
+    <link rel="icon" href="../../AxelLab-Logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_app/immutable/entry/start.BC2SPKJX.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DrLGs10z.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/B4JTICGB.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/D0U-WUXM.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.DD_Bhw1q.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CDsDeF4v.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BMiMyIra.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/D32U0xC1.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/0.BViMbYCC.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/ByVR1gH1.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BFpDmOgY.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/Dgs-8_m5.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DSBpFr32.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/10.BytjB4ij.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BtKRA9wz.js" rel="modulepreload">
+		<!--jo8es1--><meta name="description" content="Understand the trade-offs of raw textbook RSA, its vulnerabilities, and why it remains an excellent teaching tool for cryptography basics."/> <meta property="og:title" content="Limitations and Educational Value of Textbook RSA | RSA BigInt Demo Blog"/> <meta property="og:description" content="Understand the trade-offs of raw textbook RSA, its vulnerabilities, and why it remains an excellent teaching tool for cryptography basics."/> <meta property="og:url" content="../../blog/posts/post7"/> <meta property="og:type" content="article"/> <meta name="twitter:card" content="summary_large_image"/><!----><title>Limitations and Educational Value of Textbook RSA | RSA BigInt Demo Blog</title>
+		<link href="../../_app/immutable/assets/0.DhZPa5BH.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/10.Sa3N_O6u.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  </head>
+  <body data-bs-theme="light">
+    <div style="display: contents"><!--[--><!--[--><!----><header class="fixed-top p-3"><nav class="container glass rounded-pill px-4 py-2 d-flex justify-content-between align-items-center shadow-sm" style="max-width: 1100px;"><div class="d-flex align-items-center gap-3"><a href="../../" class="d-flex align-items-center gap-2 logo-group text-decoration-none svelte-12qhfyh"><img src="../../AxelLab-Logo.ico" alt="Logo" class="navbar-logo svelte-12qhfyh" style="height: 32px;"/> <span class="fw-bold fs-5 brand-text svelte-12qhfyh">AxelBase</span></a> <div class="position-relative"><button class="bmac-button d-flex align-items-center gap-2 text-white border-0 px-3 py-2 rounded-pill shadow-sm svelte-12qhfyh" aria-label="Support options"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2,21V19H20V21H2M20,8V5H4V8H20M20,10H4V13C4,14.38 4.5,15.63 5.31,16.58L11.64,19H12.36L18.69,16.58C19.5,15.63 20,14.38 20,13V10M16,2H8V4H16V2Z"></path></svg> <span class="d-none d-md-inline fw-semibold small">Buy me a Coffee</span> <span class="d-md-none fw-semibold small">Support</span></button> <!--[!--><!--]--></div></div> <div class="d-flex align-items-center gap-4"><ul class="nav d-none d-lg-flex align-items-center gap-2 m-0 list-unstyled"><li><a class="nav-link-custom svelte-12qhfyh" href="../../">Home</a></li> <li><a class="nav-link-custom svelte-12qhfyh" href="../../#about">About</a></li> <li><a class="nav-link-custom svelte-12qhfyh" href="../../#how-to-use">How to Use</a></li> <li><a class="nav-link-custom svelte-12qhfyh" href="../../#faq">FAQ</a></li> <li><a class="btn-bubbly btn-sm ms-2" href="../../blog">Blog</a></li></ul> <button class="theme-toggle svelte-12qhfyh" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button></div></nav></header> <main><!--[--><!----><div class="container fade-in post-layout svelte-jo8es1"><div class="breadcrumbs svelte-jo8es1"><a href="../../blog" class="svelte-jo8es1">Blog</a> <span class="svelte-jo8es1">/</span> <p class="svelte-jo8es1">Limitations and Educational Value of Textbook RSA</p></div> <article class="prose svelte-jo8es1"><h1 class="svelte-jo8es1">Limitations and Educational Value of Textbook RSA</h1> <p class="post-meta svelte-jo8es1">Published: February 22, 2026</p> <p class="svelte-jo8es1">Textbook RSA refers to the basic version using pure modular exponentiation without padding, randomization, or hybrid encryption. While mathematically elegant, it has known limitations that make it unsuitable for protecting real sensitive data. The most significant issue is its deterministic nature: the same message encrypted with the same public key always produces the same ciphertext. This allows attackers to recognize repeated messages or exploit patterns through chosen-ciphertext attacks.</p> <p class="svelte-jo8es1">Short messages are especially vulnerable because they may fall into ranges where algebraic relationships reveal information. Without padding schemes like OAEP, which add randomness and structure, textbook RSA leaks partial information about the plaintext in some scenarios. Modern cryptography therefore always combines RSA with secure padding and often uses it only for key exchange rather than direct message encryption.</p> <p class="svelte-jo8es1">Despite these weaknesses, textbook RSA is unmatched for teaching purposes. It clearly illustrates the core principles: asymmetric keys, modular arithmetic, prime factorization difficulty, and the elegance of public-key cryptography. By removing extra layers, learners can focus purely on the mathematics without distraction.</p> <h2 class="svelte-jo8es1">Educational Strengths</h2> <p class="svelte-jo8es1">Seeing raw encryption and the exact reversal process builds deep understanding. Experimenting with small keys reveals why larger sizes are necessary, and observing BigInt handling large numbers shows how browser technology supports cryptographic concepts directly.</p> <h3>When to Use Textbook RSA</h3> <ul class="svelte-jo8es1"><li class="svelte-jo8es1">Learning and demonstrations only</li> <li class="svelte-jo8es1">Understanding foundational algorithms</li> <li class="svelte-jo8es1">Testing mathematical properties in controlled settings</li></ul> <p class="svelte-jo8es1">This utility intentionally uses textbook RSA to maximize clarity. It warns users of its demo-only nature and encourages further study of secure real-world variants, helping bridge basic theory to practical cryptography.</p> <h2 class="svelte-jo8es1">FAQ</h2> <details class="svelte-jo8es1"><summary class="svelte-jo8es1">Why not add padding here?</summary> <p class="svelte-jo8es1">Padding would obscure the pure mathematics; the goal is transparent education rather than security.</p></details> <details class="svelte-jo8es1"><summary class="svelte-jo8es1">Can textbook RSA be secure in any case?</summary> <p class="svelte-jo8es1">Only for very specific non-sensitive uses with large random messages; generally no for real protection.</p></details> <details class="svelte-jo8es1"><summary class="svelte-jo8es1">What should I use for actual encryption?</summary> <p class="svelte-jo8es1">Modern protocols like TLS use hybrid systems with secure padding, elliptic curves, or post-quantum alternatives.</p></details> <p class="italic-note svelte-jo8es1">Thank you for exploring RSA through this series. Return to the demo to experiment and reinforce these concepts hands-on.</p></article></div><!----><!--]--></main> <footer class="container py-4 mt-5 text-center"><div class="glass-card p-3 d-flex flex-column flex-md-row justify-content-between align-items-center px-5"><span class="text-muted small">© 2026 AxelBase RSA Encrypt with BigInt</span> <div class="d-flex gap-4"><a href="../../privacy" class="nav-link-custom small svelte-12qhfyh">Privacy</a> <a href="../../terms" class="nav-link-custom small svelte-12qhfyh">Terms</a></div></div></footer><!----><!--]--> <!--[!--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1181uil = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						assets: "/rsa-encrypt-bigint"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../../_app/immutable/entry/start.BC2SPKJX.js"),
+						import("../../_app/immutable/entry/app.DD_Bhw1q.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 10],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rsa-encrypt-bigint.vercel.app/sitemap.xml

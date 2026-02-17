@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AxelBase – RSA Encrypt</title> 
+    <link rel="icon" href="../../AxelLab-Logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../_app/immutable/entry/start.BC2SPKJX.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DrLGs10z.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/B4JTICGB.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/D0U-WUXM.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.DD_Bhw1q.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CDsDeF4v.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BMiMyIra.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/D32U0xC1.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/0.BViMbYCC.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/ByVR1gH1.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BFpDmOgY.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/Dgs-8_m5.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DSBpFr32.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/7.oQC1jtBg.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BtKRA9wz.js" rel="modulepreload">
+		<!--led0iy--><meta name="description" content="Explore how JavaScript's built-in BigInt enables precise RSA computations directly in the browser without external libraries."/> <meta property="og:title" content="BigInt in JavaScript: Handling Large Numbers for RSA | RSA BigInt Demo Blog"/> <meta property="og:description" content="Explore how JavaScript's built-in BigInt enables precise RSA computations directly in the browser without external libraries."/> <meta property="og:url" content="../../blog/posts/post4"/> <meta property="og:type" content="article"/> <meta name="twitter:card" content="summary_large_image"/><!----><title>BigInt in JavaScript: Handling Large Numbers for RSA | RSA BigInt Demo Blog</title>
+		<link href="../../_app/immutable/assets/0.DhZPa5BH.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/7.C6PQdx53.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  </head>
+  <body data-bs-theme="light">
+    <div style="display: contents"><!--[--><!--[--><!----><header class="fixed-top p-3"><nav class="container glass rounded-pill px-4 py-2 d-flex justify-content-between align-items-center shadow-sm" style="max-width: 1100px;"><div class="d-flex align-items-center gap-3"><a href="../../" class="d-flex align-items-center gap-2 logo-group text-decoration-none svelte-12qhfyh"><img src="../../AxelLab-Logo.ico" alt="Logo" class="navbar-logo svelte-12qhfyh" style="height: 32px;"/> <span class="fw-bold fs-5 brand-text svelte-12qhfyh">AxelBase</span></a> <div class="position-relative"><button class="bmac-button d-flex align-items-center gap-2 text-white border-0 px-3 py-2 rounded-pill shadow-sm svelte-12qhfyh" aria-label="Support options"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2,21V19H20V21H2M20,8V5H4V8H20M20,10H4V13C4,14.38 4.5,15.63 5.31,16.58L11.64,19H12.36L18.69,16.58C19.5,15.63 20,14.38 20,13V10M16,2H8V4H16V2Z"></path></svg> <span class="d-none d-md-inline fw-semibold small">Buy me a Coffee</span> <span class="d-md-none fw-semibold small">Support</span></button> <!--[!--><!--]--></div></div> <div class="d-flex align-items-center gap-4"><ul class="nav d-none d-lg-flex align-items-center gap-2 m-0 list-unstyled"><li><a class="nav-link-custom svelte-12qhfyh" href="../../">Home</a></li> <li><a class="nav-link-custom svelte-12qhfyh" href="../../#about">About</a></li> <li><a class="nav-link-custom svelte-12qhfyh" href="../../#how-to-use">How to Use</a></li> <li><a class="nav-link-custom svelte-12qhfyh" href="../../#faq">FAQ</a></li> <li><a class="btn-bubbly btn-sm ms-2" href="../../blog">Blog</a></li></ul> <button class="theme-toggle svelte-12qhfyh" aria-label="Toggle Theme"><i class="bi bi-moon-stars-fill"></i></button></div></nav></header> <main><!--[--><!----><div class="container fade-in post-layout svelte-led0iy"><div class="breadcrumbs svelte-led0iy"><a href="../../blog" class="svelte-led0iy">Blog</a> <span class="svelte-led0iy">/</span> <p class="svelte-led0iy">BigInt in JavaScript: Handling Large Numbers for RSA</p></div> <article class="prose svelte-led0iy"><h1 class="svelte-led0iy">BigInt in JavaScript: Handling Large Numbers for RSA</h1> <p class="post-meta svelte-led0iy">Published: February 16, 2026</p> <p class="svelte-led0iy">JavaScript's BigInt type, introduced in modern browsers, revolutionized how developers can perform cryptography educationally in the client. Traditional JavaScript numbers are limited to about fifty-three bits of precision due to their floating-point representation. RSA keys, however, routinely require one thousand twenty-four bits or more, making standard numbers completely unsuitable for accurate modular arithmetic.</p> <p class="svelte-led0iy">BigInt solves this by supporting arbitrary-precision integers. Any number followed by the letter n becomes a BigInt, and operations like addition, multiplication, exponentiation, and modulo work exactly as expected with no loss of precision. This allows the entire RSA process—prime generation, key computation, encryption—to run natively in the browser without relying on third-party libraries or server-side processing.</p> <p class="svelte-led0iy">For RSA, BigInt shines in modular exponentiation, where large bases are raised to large powers modulo a large number. The built-in exponentiation operator handles this efficiently when combined with manual square-and-multiply logic to keep intermediate values manageable. All calculations remain exact, ensuring that encryption followed by decryption recovers the original message perfectly when using matching keys.</p> <h2 class="svelte-led0iy">Advantages for Browser-Based Tools</h2> <p class="svelte-led0iy">Running RSA entirely client-side means no data leaves the user's device. This privacy benefit is especially valuable for educational demos where users experiment with different key sizes and messages. Performance remains acceptable for one thousand twenty-four-bit keys, with generation and encryption completing in seconds on modern hardware.</p> <h3>Practical Considerations</h3> <ul class="svelte-led0iy"><li class="svelte-led0iy">BigInt operations are slower than regular numbers but fast enough for interactive use</li> <li class="svelte-led0iy">Conversion between strings and BigInt is straightforward for input and output</li> <li class="svelte-led0iy">Hexadecimal representation makes large numbers easy to copy and share</li></ul> <p class="svelte-led0iy">This utility demonstrates these capabilities directly. Users can generate keys of various lengths and encrypt messages, observing how seamlessly BigInt manages numbers far beyond normal JavaScript limits while keeping everything transparent and educational.</p> <h2 class="svelte-led0iy">FAQ</h2> <details class="svelte-led0iy"><summary class="svelte-led0iy">Why was BigInt added to JavaScript?</summary> <p class="svelte-led0iy">To support cryptographic and financial applications requiring exact large-integer arithmetic without approximations.</p></details> <details class="svelte-led0iy"><summary class="svelte-led0iy">Can BigInt handle negative numbers?</summary> <p class="svelte-led0iy">Yes, but RSA typically uses positive values only, so negative handling is rarely needed here.</p></details> <details class="svelte-led0iy"><summary class="svelte-led0iy">Does BigInt work in all browsers?</summary> <p class="svelte-led0iy">It is supported in all major browsers released since late two thousand seventeen, covering virtually all current users.</p></details> <p class="italic-note svelte-led0iy">Next we examine how primes are tested efficiently to ensure RSA keys are built on solid mathematical foundations.</p></article></div><!----><!--]--></main> <footer class="container py-4 mt-5 text-center"><div class="glass-card p-3 d-flex flex-column flex-md-row justify-content-between align-items-center px-5"><span class="text-muted small">© 2026 AxelBase RSA Encrypt with BigInt</span> <div class="d-flex gap-4"><a href="../../privacy" class="nav-link-custom small svelte-12qhfyh">Privacy</a> <a href="../../terms" class="nav-link-custom small svelte-12qhfyh">Terms</a></div></div></footer><!----><!--]--> <!--[!--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1181uil = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						assets: "/rsa-encrypt-bigint"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../../_app/immutable/entry/start.BC2SPKJX.js"),
+						import("../../_app/immutable/entry/app.DD_Bhw1q.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 7],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
