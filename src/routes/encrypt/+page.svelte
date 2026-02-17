@@ -32,9 +32,6 @@
   <div class="text-center mb-5" in:fade={{ duration: 800 }}>
     <h1 class="display-4 fw-bold" style="color: var(--brand-orange)">RSA Encryption</h1>
     <p class="text-muted">Secure your message using a public key. 
-      <span class="d-block small text-warning-emphasis mt-1">
-        <i class="bi bi-info-circle"></i> Demo only – no padding applied.
-      </span>
     </p>
   </div>
 
